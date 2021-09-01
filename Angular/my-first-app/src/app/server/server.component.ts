@@ -7,9 +7,17 @@ import { ServersComponent } from "../servers/servers.component";
 })
 export class ServerComponent {
     serverId : number = 10;
-    ServerStatus : string = 'offline';
+    serverStatus : string = 'offline';
+
+    constructor() {
+        this.serverStatus = Math.random() > .5 ? 'online' : 'offline';
+    }
 
     getServerStatus() {
-        return this.ServerStatus;
+        return this.serverStatus;
     }
-}
+
+    getColor() {
+        return this.serverStatus === 'online' ? "green" : "red";
+    }
+} 
